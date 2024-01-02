@@ -29,7 +29,7 @@ namespace SeleniumSpecflowFrameworkfinal.Hooks
           
 
             Browser.GetDriver(TestContext.Parameters );
-            TestHelpers.GoToUrl(TestHelpers.GetWebUrl(TestContext.Parameters));
+           
             _scenario = _feature.CreateNode<Scenario>(scenarioContext.ScenarioInfo.Title);
 
       
