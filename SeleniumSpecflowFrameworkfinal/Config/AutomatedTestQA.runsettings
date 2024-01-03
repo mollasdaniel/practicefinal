@@ -9,7 +9,7 @@
 	<TestRunParameters>
 		<Parameter name="testEnvironment" value="QA" />
 		<Parameter name="WebDriver.Default.ImplicitWait.Seconds" value="50" />
-		<Parameter name="Webdriver.RunHeadless" value="false" />
+		<Parameter name="Webdriver.RunHeadless" value="true" />
 		<Parameter name="Testing.Default.Driver" value="ChromeDriver" />
 		<Parameter name="EnvUrl" value="https://www.amazon.co.uk/" />
 	</TestRunParameters>
