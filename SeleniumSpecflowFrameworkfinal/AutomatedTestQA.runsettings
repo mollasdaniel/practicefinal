@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RunSettings>
+	<!-- Configurations that affect the Test Framework -->
+
+	<!-- Configurations for data collectors -->
+	
+
+	<!-- Parameters used by tests at run time -->
+	<TestRunParameters>
+		<Parameter name="testEnvironment" value="QA" />
+		<Parameter name="WebDriver.Default.ImplicitWait.Seconds" value="50" />
+		<Parameter name="Webdriver.RunHeadless" value="true" />
+		<Parameter name="Testing.Default.Driver" value="ChromeDriver" />
+		<Parameter name="EnvUrl" value="https://www.amazon.co.uk/" />
+	</TestRunParameters>
+
+</RunSettings>
+
+
