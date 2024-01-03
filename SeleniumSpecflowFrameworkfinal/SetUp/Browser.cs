@@ -19,8 +19,12 @@ namespace SeleniumSpecflowFrameworkfinal.SetUp
             switch (browser)
             {
                 case "ChromeDriver":
-                    new DriverManager().SetUpDriver(new ChromeConfig());
-                    driver = new ChromeDriver();
+                    //new DriverManager().SetUpDriver(new ChromeConfig());
+                    ChromeOptions options = new ChromeOptions();
+
+                    // Add the headless option
+                    options.AddArgument("headless");
+                    driver = new ChromeDriver(options);
                     driver.Manage().Window.Maximize();  
                     driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
                     break;
