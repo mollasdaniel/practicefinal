@@ -18,4 +18,4 @@ RUN dotnet add package Selenium.WebDriver
 # RUN dotnet specflow generateall
 
 # Run the SpecFlow tests
-CMD ["dotnet", "test", "--settings ", "AutomatedTestQA.runsettings", "--filter" "SeleniumSpecflowFrameworkfinal.dll"]
+CMD ["dotnet", "test", "--settings ", "AutomatedTestQA.runsettings", "--filter", "SeleniumSpecflowFrameworkfinal.dll"]
