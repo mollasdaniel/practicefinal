@@ -1,21 +1,38 @@
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-WORKDIR /app
-
+# Use the official .NET 6.0 SDK as the build image
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
 
-COPY . .
-RUN dotnet restore  
-# Install SpecFlow and Selenium WebDriver
-# RUN dotnet tool install --global SpecFlow.Tools.MsBuild.Generation
-RUN dotnet add package Selenium.WebDriver
-
-RUN dotnet build  -c Release -o /app/build
-
-FROM build AS publish
-RUN dotnet publish -c Release -o /app/publish
-
-FROM base AS final 
+# Set the working directory to /app
 WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
+
+# Copy the project file and restore dependencies
+COPY *.csproj ./
+RUN dotnet restore
+
+# Copy the remaining source code
+COPY . .
+
+# Build the application
+RUN dotnet build -c Release -o out
+
+# Use the official .NET 6.0 runtime as the runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the built artifacts from the build image
+COPY --from=build /app/out ./
+
+# Install Chrome and Chromedriver
+RUN apt-get update && \
+    apt-get install -y chromium && \
+    apt-get install -y chromium-driver
+
+# Set up environment variables for running Selenium in headless mode
+ENV ASPNETCORE_URLS=http://+:5000
+ENV ASPNETCORE_ENVIRONMENT=Production
+ENV ASPNETCORE_HEADLESS=true
+
+# Run the tests when the container launches
+CMD ["dotnet", "test", "--filter", "SeleniumSpecflowFrameworkfinal.dll"]
+#ENTRYPOINT ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
