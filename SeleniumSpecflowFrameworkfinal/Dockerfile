@@ -24,5 +24,5 @@ RUN dotnet build "SeleniumSpecflowFrameworkfinal.csproj" -c Release -o /app/buil
 FROM base AS final
 
 WORKDIR /app
-COPY --from=build /app/build .
+COPY . .
 ENTRYPOINT ["dotnet", "--settings ", "AutomatedTestQA.runsettings", "--filter" "SeleniumSpecflowFrameworkfinal.dll"]
