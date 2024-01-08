@@ -8,7 +8,7 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0
 WORKDIR /src
 
 # Copy project files
-COPY ["SeleniumSpecflowFrameworkfinal/SeleniumSpecflowFrameworkfinal/SeleniumSpecflowFrameworkfinal.csproj", "SeleniumSpecflowFrameworkfinal/"]
+COPY ["SeleniumSpecflowFrameworkfinal.csproj", "SeleniumSpecflowFrameworkfinal/"]
 
 # Restore dependencies
 RUN dotnet restore "SeleniumSpecflowFrameworkfinal.csproj"
