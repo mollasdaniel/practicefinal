@@ -29,10 +29,10 @@ RUN apt-get update && \
     apt-get install -y chromium-driver
 
 # Set up environment variables for running Selenium in headless mode
-ENV ASPNETCORE_URLS=http://+:5000
-ENV ASPNETCORE_ENVIRONMENT=Production
-ENV ASPNETCORE_HEADLESS=true
+# ENV ASPNETCORE_URLS=http://+:5000
+# ENV ASPNETCORE_ENVIRONMENT=Production
+# ENV ASPNETCORE_HEADLESS=true
 
 # Run the tests when the container launches
-CMD ["dotnet", "test", "--filter", "SeleniumSpecflowFrameworkfinal.dll"]
+CMD ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
 #ENTRYPOINT ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
