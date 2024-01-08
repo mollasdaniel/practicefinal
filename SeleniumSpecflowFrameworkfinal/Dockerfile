@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 
-COPY . ./
+COPY . .
 RUN dotnet restore   
 RUN dotnet build  -c Release -o /app/build
 
