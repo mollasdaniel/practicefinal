@@ -4,7 +4,7 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 
-COPY . ./
+COPY . .
 RUN dotnet restore  
 # Install SpecFlow and Selenium WebDriver
 # RUN dotnet tool install --global SpecFlow.Tools.MsBuild.Generation
