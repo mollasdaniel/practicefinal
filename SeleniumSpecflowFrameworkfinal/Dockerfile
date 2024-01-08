@@ -11,7 +11,7 @@ WORKDIR /src
 COPY ["SeleniumSpecflowFrameworkfinal.csproj", "SeleniumSpecflowFrameworkfinal/"]
 
 # Restore dependencies
-RUN dotnet restore "SeleniumSpecflowFrameworkfinal.csproj"
+RUN dotnet restore "SeleniumSpecflowFrameworkfinal/SeleniumSpecflowFrameworkfinal.csproj"
 
 COPY . .
 WORKDIR "/src/SeleniumSpecflowFrameworkfinal/SeleniumSpecflowFrameworkfinal"
