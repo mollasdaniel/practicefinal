@@ -18,6 +18,7 @@ WORKDIR "/src/SeleniumSpecflowFrameworkfinal"
 RUN dotnet build "SeleniumSpecflowFrameworkfinal.csproj" -c Release -o /app/build
 
 FROM build AS publish
+WORKDIR "/src/SeleniumSpecflowFrameworkfinal"
 RUN dotnet publish "SeleniumSpecflowFrameworkfinal.csproj" -c Release -o /app/publish
 
 FROM base AS final
