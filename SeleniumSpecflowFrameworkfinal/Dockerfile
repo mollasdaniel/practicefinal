@@ -25,4 +25,4 @@ FROM base AS final
 
 WORKDIR /app
 COPY . .
-ENTRYPOINT ["dotnet", "--settings ", "AutomatedTestQA.runsettings", "--filter" "SeleniumSpecflowFrameworkfinal.dll"]
+ENTRYPOINT ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
