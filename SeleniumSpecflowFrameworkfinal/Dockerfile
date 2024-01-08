@@ -14,7 +14,7 @@ COPY ["SeleniumSpecflowFrameworkfinal.csproj", "SeleniumSpecflowFrameworkfinal/"
 RUN dotnet restore "SeleniumSpecflowFrameworkfinal/SeleniumSpecflowFrameworkfinal.csproj"
 
 COPY . .
-WORKDIR "/src/SeleniumSpecflowFrameworkfinal/SeleniumSpecflowFrameworkfinal"
+WORKDIR "/src/SeleniumSpecflowFrameworkfinal"
 RUN dotnet build "SeleniumSpecflowFrameworkfinal.csproj" -c Release -o /app/build
 
 FROM build AS publish
