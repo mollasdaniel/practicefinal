@@ -1,8 +1,8 @@
-﻿# Use .NET Core SDK as the base image
+# Use .NET Core SDK as the base image
 FROM mcr.microsoft.com/dotnet/sdk:6.0
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /src
 
 # Copy project files
 COPY . .
@@ -10,12 +10,15 @@ COPY . .
 # Restore dependencies
 RUN dotnet restore
 
-# Install SpecFlow and Selenium WebDriver
-# RUN dotnet tool install --global SpecFlow.Tools.MsBuild.Generation
-RUN dotnet add package Selenium.WebDriver
+COPY . .
+WORKDIR "/src/SeleniumSpecflowFrameworkfinal"
+RUN dotnet build "SeleniumSpecflowFrameworkfinal.csproj" -c Release -o /src/build
 
-# Generate SpecFlow bindings
-# RUN dotnet specflow generateall
+FROM build AS publish
+RUN dotnet publish "SeleniumSpecflowFrameworkfinal.csproj" -c Release -o /src/publish
 
-# Run the SpecFlow tests
-CMD ["dotnet", "test", "--settings", "SeleniumSpecflowFramweworkFinal/AutomatedTestQA.runsettings","--logger","trx"]
+FROM base AS final
+
+WORKDIR /src
+COPY --from=publish /src/publish .
+ENTRYPOINT ["dotnet", "--settings ", "AutomatedTestQA.runsettings", "--filter" "SeleniumSpecflowFrameworkfinal.dll"]
