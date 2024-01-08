@@ -14,11 +14,11 @@ COPY . .
 # WORKDIR "/src/SeleniumSpecflowFrameworkfinal"
 RUN dotnet build "SeleniumSpecflowFrameworkfinal.csproj" 
 
-FROM build AS publish
+#FROM build AS publish
 # WORKDIR "/src/SeleniumSpecflowFrameworkfinal"
-RUN dotnet publish "SeleniumSpecflowFrameworkfinal.csproj" 
+# RUN dotnet publish "SeleniumSpecflowFrameworkfinal.csproj" 
 
-FROM base AS final
+#FROM base AS final
 
 WORKDIR /app/bin/Debug/net6.0/
 COPY . .
