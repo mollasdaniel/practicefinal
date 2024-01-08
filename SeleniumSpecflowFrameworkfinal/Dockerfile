@@ -20,6 +20,6 @@ RUN dotnet build "SeleniumSpecflowFrameworkfinal.csproj"
 
 #FROM base AS final
 
-WORKDIR /app/bin/Debug/net6.0/
+# WORKDIR /app/bin/Debug/net6.0/
 COPY . .
 ENTRYPOINT ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
