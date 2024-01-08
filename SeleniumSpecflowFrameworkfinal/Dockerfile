@@ -5,10 +5,10 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0
 WORKDIR /src
 
 # Copy project files
-COPY . .
+COPY ["SeleniumSpecflowFrameworkfinal.csproj", "SeleniumSpecflowFrameworkfinal/"]
 
 # Restore dependencies
-RUN dotnet restore
+RUN dotnet restore "SeleniumSpecflowFrameworkfinal.csproj"
 
 COPY . .
 WORKDIR "/src/SeleniumSpecflowFrameworkfinal"
