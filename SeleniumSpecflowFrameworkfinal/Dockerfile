@@ -8,13 +8,13 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0
 WORKDIR /src
 
 # Copy project files
-COPY ["SeleniumSpecflowFrameworkfinal/SeleniumSpecflowFrameworkfinal.csproj", "SeleniumSpecflowFrameworkfinal/"]
+COPY ["SeleniumSpecflowFrameworkfinal/SeleniumSpecflowFrameworkfinal/SeleniumSpecflowFrameworkfinal.csproj", "SeleniumSpecflowFrameworkfinal/"]
 
 # Restore dependencies
 RUN dotnet restore "SeleniumSpecflowFrameworkfinal.csproj"
 
 COPY . .
-WORKDIR "/src/SeleniumSpecflowFrameworkfinal"
+WORKDIR "/src/SeleniumSpecflowFrameworkfinal/SeleniumSpecflowFrameworkfinal"
 RUN dotnet build "SeleniumSpecflowFrameworkfinal.csproj" -c Release -o /app/build
 
 FROM build AS publish
