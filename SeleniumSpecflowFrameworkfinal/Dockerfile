@@ -1,25 +1,14 @@
-# Use .NET Core SDK as the base image
-FROM mcr.microsoft.com/dotnet/sdk:6.0
-
-# Set the working directory
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 
-# Copy project files
-COPY . .
+COPY . ./
+RUN dotnet restore   
+RUN dotnet build  -c Release -o /app/build
 
-# Restore dependencies
-RUN dotnet restore "SeleniumSpecflowFrameworkfinal.csproj"
+FROM build AS publish
+RUN dotnet publish -c Release -o /app/publish
 
-COPY . .
-# WORKDIR "/src/SeleniumSpecflowFrameworkfinal"
-RUN dotnet build "SeleniumSpecflowFrameworkfinal.csproj" 
-
-#FROM build AS publish
-# WORKDIR "/src/SeleniumSpecflowFrameworkfinal"
-# RUN dotnet publish "SeleniumSpecflowFrameworkfinal.csproj" 
-
-#FROM base AS final
-
-# WORKDIR /app/bin/Debug/net6.0/
-COPY . .
-CMD ["dotnet", "test", "SeleniumSpecflowFrameworkfinal.dll"]
+FROM base AS final 
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
