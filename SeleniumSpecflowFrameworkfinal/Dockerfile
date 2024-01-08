@@ -17,12 +17,12 @@ COPY . .
 WORKDIR "/src/SeleniumSpecflowFrameworkfinal"
 RUN dotnet build "SeleniumSpecflowFrameworkfinal.csproj" -c Release -o /app/build
 
-FROM build AS publish
-WORKDIR "/src/SeleniumSpecflowFrameworkfinal"
-RUN dotnet publish "SeleniumSpecflowFrameworkfinal.csproj" -c Release -o /app/publish
+# FROM build AS publish
+# WORKDIR "/src/SeleniumSpecflowFrameworkfinal"
+# RUN dotnet publish "SeleniumSpecflowFrameworkfinal.csproj" -c Release -o /app/publish
 
 FROM base AS final
 
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build /app/build .
 ENTRYPOINT ["dotnet", "--settings ", "AutomatedTestQA.runsettings", "--filter" "SeleniumSpecflowFrameworkfinal.dll"]
