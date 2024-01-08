@@ -5,20 +5,18 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0
 WORKDIR /app
 
 # Copy project files
-COPY ["SeleniumSpecflowFrameworkfinal.csproj", "SeleniumSpecflowFrameworkfinal/"]
+COPY . .
 
 # Restore dependencies
 RUN dotnet restore "SeleniumSpecflowFrameworkfinal.csproj"
 
 COPY . .
-WORKDIR "/app/SeleniumSpecflowFrameworkfinal"
-RUN dotnet build "SeleniumSpecflowFrameworkfinal.csproj" -c Release -o /app/build
+RUN dotnet build "SeleniumSpecflowFrameworkfinal.csproj"
 
 FROM build AS publish
-RUN dotnet publish "SeleniumSpecflowFrameworkfinal.csproj" -c Release -o /app/publish
+RUN dotnet publish "SeleniumSpecflowFrameworkfinal.csproj" 
 
 FROM base AS final
 
-WORKDIR /app
-COPY --from=publish /app/publish .
+COPY . .
 ENTRYPOINT ["dotnet", "--settings ", "AutomatedTestQA.runsettings", "--filter" "SeleniumSpecflowFrameworkfinal.dll"]
