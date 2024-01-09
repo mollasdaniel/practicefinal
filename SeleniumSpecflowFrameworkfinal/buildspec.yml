@@ -13,8 +13,8 @@ phases:
        - echo Building the Docker image...
        - docker build -t 132445211002.dkr.ecr.eu-west-2.amazonaws.com/automationtest:latest SeleniumSpecflowFrameworkfinal
        - docker ps -a
-       - docker create --env HOST_NAME=seleniumgrid --network automation_network --name SeleniumSpecflowFrameworkfinal --volume "$(pwd)"/seleniumspecflowframeworkfinal:/app/seleniumspecflowframeworkfinal 132445211002.dkr.ecr.eu-west-2.amazonaws.com/automationtest:latest SeleniumSpecflowFrameworkfinal
-       - docker start -a seleniumspecflowframeworkfinal
+       - docker create --env HOST_NAME=seleniumgrid --network automation_network --name 132445211002.dkr.ecr.eu-west-2.amazonaws.com/automationtest:latest --volume "$(pwd)"/seleniumspecflowframeworkfinal:/app/seleniumspecflowframeworkfinal 132445211002.dkr.ecr.eu-west-2.amazonaws.com/automationtest:latest SeleniumSpecflowFrameworkfinal
+       - docker start -a 132445211002.dkr.ecr.eu-west-2.amazonaws.com/automationtest:latest
        - echo Test Run Completed
        - echo Logging in to AWS ECR...
        - aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 132445211002.dkr.ecr.eu-west-2.amazonaws.com
