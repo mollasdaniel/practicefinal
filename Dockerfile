@@ -1,8 +1,3 @@
-
-Certainly! Below is a sample Dockerfile for running Selenium tests in a .NET 6.0 environment. Adjustments may be needed based on your specific project structure and dependencies.
-
-Dockerfile
-Copy code
 # Use the official .NET 6.0 SDK as the build image
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 
