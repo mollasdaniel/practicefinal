@@ -14,7 +14,7 @@ phases:
      commands:
        - echo Build started on `date`
        - echo Building the Docker image...
-       - docker build -t  132445211002.dkr.ecr.eu-west-2.amazonaws.com/automationtest:latest SeleniumSpecflowFrameworkfinal
+       - docker build -t  practicefinal:latest .
        - docker ps -a
        - echo Build started on `date`
        - pwd
