@@ -28,6 +28,7 @@ phases:
        - ls -lrt
        - ls -lrt ./SeleniumSpecflowFrameworkfinal/
        - docker start -a SeleniumSpecflow_Frameworkfinal
+       - docker ps -a
        - echo Test Run Completed
        - echo Logging in to AWS ECR...
        - aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 132445211002.dkr.ecr.eu-west-2.amazonaws.com
