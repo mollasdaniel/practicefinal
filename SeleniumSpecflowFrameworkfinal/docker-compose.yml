@@ -1,25 +1,63 @@
-﻿version: 0.2
+﻿version: "3"
+services:
+  chrome:
+    image: selenium/node-chrome:4.1.3-20220405
+    tty: false
+    stdin_open: false
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
 
-phases:
-    pre_build:
-     commands:
-       - echo set selenium grid with chrome browser...
-       - docker pull selenium/standalone-chrome:4.1.3-20220405
-       - docker network create automation_network || true
-       - docker run -d -p 4444:4444 --shm-size="2g" --network automation_network --name seleniumgrid --network-alias seleniumgrid selenium/standalone-chrome:4.1.3-20220405    
-    build:
-     commands:
-       - echo Build started on `date`
-       - echo Building the Docker image...
-       - docker build -t 132445211002.dkr.ecr.eu-west-2.amazonaws.com/automationtest:latest SeleniumSpecflowFrameworkfinal
-       - docker ps -a
-       - docker create --env HOST_NAME=seleniumgrid --network automation_network --name SeleniumSpecflowFrameworkfinal --volume "$(pwd)"/:/app/seleniumspecflowframeworkfinal 132445211002.dkr.ecr.eu-west-2.amazonaws.com/automationtest:latest SeleniumSpecflowFrameworkfinal
-       - docker start -a SeleniumSpecflowFrameworkfinal
-       - echo Test Run Completed
-       - echo Logging in to AWS ECR...
-       - aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 132445211002.dkr.ecr.eu-west-2.amazonaws.com
-       - echo Pushing the Docker image to AWS ECR...
-       - docker push 132445211002.dkr.ecr.eu-west-2.amazonaws.com/automationtest:latest 
-   
-   
+  edge:
+    image: selenium/node-edge:4.1.3-20220405
+    tty: false
+    stdin_open: false
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+
+  firefox:
+    image: selenium/node-firefox:4.1.3-20220405
+    tty: false
+    stdin_open: false
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+
+  selenium-hub:
+    image: selenium/hub:4.1.3-20220405
+    tty: false
+    stdin_open: false
+    container_name: selenium-hub
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+
+  automation:
+    image: automation-test:latest
+    container_name: automationtest
+    build: .
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+      - chrome
+      - edge
+      - firefox
+    environment:
+      - HOST_NAME=selenium-hub
+    volumes:
+      - ./reporter:/app/reporter
   
