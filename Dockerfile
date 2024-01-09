@@ -29,5 +29,5 @@ COPY . .
 # Set the working directory to /app
 
 # Run the tests whe the container launches
-CMD ["dotnet","SeleniumSpecflowFrameworkfinal.csproj"]
+CMD ["dotnet","SeleniumSpecflowFrameworkfinal"]
 #ENTRYPOINT ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
