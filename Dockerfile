@@ -15,7 +15,7 @@ COPY . .
 WORKDIR /app
 
 # Copy the built artifacts from the build image
-COPY --from=build ./
+COPY . . 
 
 # Run the tests when the container launches
 CMD ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
