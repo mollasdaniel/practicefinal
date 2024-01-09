@@ -1,4 +1,4 @@
-# Use .NET Core SDK as the base image
+﻿# Use .NET Core SDK as the base image
 FROM mcr.microsoft.com/dotnet/sdk:6.0
 
 # Set the working directory
@@ -18,4 +18,4 @@ RUN dotnet add package Selenium.WebDriver
 # RUN dotnet specflow generateall
 
 # Run the SpecFlow tests
-CMD ["dotnet", "test", "--settings ", "AutomatedTestQA.runsettings", "--filter", "SeleniumSpecflowFrameworkfinal.dll"]
+CMD ["dotnet", "test", "--settings ", "SeleniumSpecflowFrameworkfinal/Config/AutomatedTestQA.runsettings"]
