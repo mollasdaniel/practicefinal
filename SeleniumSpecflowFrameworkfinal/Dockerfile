@@ -11,7 +11,7 @@ RUN dotnet restore
 COPY . .
 
 # Build the application
-RUN dotnet build -c Release -o out
+RUN dotnet build 
 
 # Use the official .NET 6.0 runtime as the runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
@@ -20,7 +20,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
 
 # Copy the built artifacts from the build image
-COPY --from=build /app/out ./
+COPY --from=build . .
 
 # Set up environment variables for running Selenium in headless mode
 # ENV ASPNETCORE_URLS=http://+:5000
