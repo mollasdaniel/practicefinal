@@ -23,7 +23,7 @@ phases:
        - docker ps -a
        - echo Build completed on `date`
        - ls -lrt
-       - ls -lrt ./SeleniumSpecflowFrameworkfinal/reporter
+       - ls -lrt ./SeleniumSpecflowFrameworkfinal/
        - docker start -a SeleniumSpecflow_Frameworkfinal
        - echo Test Run Completed
        - echo Logging in to AWS ECR...
