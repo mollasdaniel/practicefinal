@@ -28,6 +28,6 @@ COPY --from=build . .
 # ENV ASPNETCORE_HEADLESS=true
 # Set the working directory to /app
 
-# Run the tests when the container launches
-CMD ["dotnet", "SeleniumSpecflowFrameworkfinal.csproj"]
+# Run the tests whe the container launches
+CMD ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
 #ENTRYPOINT ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
