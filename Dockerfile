@@ -9,7 +9,7 @@ COPY . ./
 RUN dotnet restore
 
 # Copy the remaining source code
-COPY . .
+COPY . ./
 
 # Build the application
 RUN dotnet build -c Release -o out
