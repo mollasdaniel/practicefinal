@@ -27,7 +27,7 @@ COPY . .
 # ENV ASPNETCORE_ENVIRONMENT=Production
 # ENV ASPNETCORE_HEADLESS=true
 # Set the working directory to /app
-
+WORKDIR /app/practicefinal
 # Run the tests whe the container launches
-CMD ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
+CMD ["dotnet", "test","SeleniumSpecflowFrameworkfinal.dll"]
 #ENTRYPOINT ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
