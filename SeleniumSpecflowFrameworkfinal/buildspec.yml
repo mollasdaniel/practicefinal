@@ -11,9 +11,9 @@ phases:
      commands:
        - echo Build started on `date`
        - echo Building the Docker image...
-       - docker build -t  seleniumspecflowframeworkfinal:latest SeleniumSpecflowFrameworkfinal .
+       - docker build -t  132445211002.dkr.ecr.eu-west-2.amazonaws.com/automationtest:latest SeleniumSpecflowFrameworkfinal
        - docker ps -a
-       - docker run --env HOST_NAME=seleniumgrid --network automation_network --name SeleniumSpecflow_Frameworkfinal --volume "$(pwd)"/reporter:/app/reporter seleniumspecflowframeworkfinal:latest
+       - docker run --env HOST_NAME=seleniumgrid --network automation_network --name SeleniumSpecflow_Frameworkfinal --volume "$(pwd)"/reporter:/app/reporter 132445211002.dkr.ecr.eu-west-2.amazonaws.com/automationtest:latest SeleniumSpecflowFrameworkfinal
        #- docker ps -a
        #- docker start -a SeleniumSpecflowFrameworkfinal
        - echo Test Run Completed
