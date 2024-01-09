@@ -41,7 +41,7 @@ namespace SeleniumSpecflowFrameworkfinal.Support
         public static void ClickOnElement(IWebElement elementToCLickOn)
         {
             if (elementToCLickOn.Enabled) elementToCLickOn.Click();
-            else Console.WriteLine("The web element you intend to click on is not enabled");
+            else Console.WriteLine("The web element you inten to click on is not enabled");
         }
 
         public static void ClickOnElementUsingJS(string xpathOfElementtoClickOn)
