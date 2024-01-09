@@ -1,7 +1,6 @@
 ﻿version: 0.2
 
 phases:
-phases:
     pre_build:
     commands:
        - echo set selenium grid with chrome browser...
