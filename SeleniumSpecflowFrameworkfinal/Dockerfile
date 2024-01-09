@@ -23,11 +23,6 @@ WORKDIR /app
 # Copy the built artifacts from the build image
 COPY --from=build /app/out ./
 
-# Install Chrome and Chromedriver
-RUN apt-get update && \
-    apt-get install -y chromium && \
-    apt-get install -y chromium-driver
-
 # Set up environment variables for running Selenium in headless mode
 # ENV ASPNETCORE_URLS=http://+:5000
 # ENV ASPNETCORE_ENVIRONMENT=Production
