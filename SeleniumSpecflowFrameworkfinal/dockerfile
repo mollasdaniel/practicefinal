@@ -20,7 +20,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
 
 # Copy the built artifacts from the build image
-COPY --from=build . .
+COPY . .
 
 # Set up environment variables for running Selenium in headless mode
 # ENV ASPNETCORE_URLS=http://+:5000
