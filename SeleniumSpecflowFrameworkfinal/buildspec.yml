@@ -9,12 +9,4 @@ phases:
        - aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 132445211002.dkr.ecr.eu-west-2.amazonaws.com
        - echo Pushing the Docker image to AWS ECR...
        - docker push 132445211002.dkr.ecr.eu-west-2.amazonaws.com/automationtest:latest     
-   reports:
-  php-reports:
-    files:
-      - "reports/php/*.xml"
-    file-format: "JUNITXML"
-  nunit-reports:
-    files:
-      - "reports/nunit/*.xml"
-    file-format: "NUNITXML"
+  
