@@ -6,8 +6,8 @@ phases:
        dotnet: 6.0
      commands:
       - echo Installing .NET SDK
-      - sudo apt-get update
-      - sudo apt-get install -y dotnet-sdk-6.0
+      - RUN apt-get update && \
+           apt-get install -y dotnet-sdk-6.0
     pre_build:
      commands:
        - echo set selenium grid with chrome browser...
