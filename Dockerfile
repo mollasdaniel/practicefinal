@@ -7,6 +7,11 @@ WORKDIR /app
 COPY . .
 RUN dotnet restore
 
+# Install Chrome and Chromedriver
+RUN apt-get update && \
+    apt-get install -y chromium && \
+    apt-get install -y dotnet-sdk-6.0
+    
 # Copy the remaining source code
 COPY . .
 
