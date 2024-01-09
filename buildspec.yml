@@ -4,6 +4,9 @@ phases:
     install:
      runtime-versions:
        dotnet: 6.0
+     commands:
+       - sudo apt-get update
+       - sudo apt-get install -y dotnet-sdk-6.0
     pre_build:
      commands:
        - echo set selenium grid with chrome browser...
