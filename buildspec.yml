@@ -17,7 +17,7 @@ phases:
      commands:
        - echo Build started on `date`
        - echo Building the Docker image...
-       - docker build -t  practicefinal:latest .
+       - docker build -t  practicefinal/SeleniumSpecflowFrameworkfinal:latest .
        - docker ps -a
        - echo Build started on `date`
        - pwd
