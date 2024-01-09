@@ -26,7 +26,8 @@ COPY --from=build . .
 # ENV ASPNETCORE_URLS=http://+:5000
 # ENV ASPNETCORE_ENVIRONMENT=Production
 # ENV ASPNETCORE_HEADLESS=true
-
+# Set the working directory to /app
+WORKDIR /app/bin/Debug/net6.0/
 # Run the tests when the container launches
 ENTRYPOINT ["dotnet", "SeleniumSpecflowFrameworkfinal"]
 #ENTRYPOINT ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
