@@ -13,7 +13,7 @@ phases:
        - echo Building the Docker image...
        - docker build -t 132445211002.dkr.ecr.eu-west-2.amazonaws.com/automationtest:latest SeleniumSpecflowFrameworkfinal
        - docker ps -a
-       - docker create --env HOST_NAME=seleniumgrid --network automation_network --name SeleniumSpecflowFrameworkfinal --volume "$(pwd)"/seleniumspecflowframeworkfinal/reporter:/app/seleniumspecflowframeworkfinal/reporter 132445211002.dkr.ecr.eu-west-2.amazonaws.com/automationtest:latest SeleniumSpecflowFrameworkfinal
+       - docker create --env HOST_NAME=seleniumgrid --network automation_network --name SeleniumSpecflowFrameworkfinal --volume "$(pwd)"/app/seleniumspecflowframeworkfinal/reporter:/app/seleniumspecflowframeworkfinal/reporter 132445211002.dkr.ecr.eu-west-2.amazonaws.com/automationtest:latest SeleniumSpecflowFrameworkfinal
        - docker ps -a
        - docker start -a SeleniumSpecflowFrameworkfinal
        - echo Test Run Completed
