@@ -17,12 +17,12 @@ phases:
      commands:
        - echo Build started on `date`
        - echo Building the Docker image...
-       - docker build -t  SeleniumSpecflowFrameworkfinal:latest practicefinal/SeleniumSpecflowFrameworkfinal
+       - docker build -t  seleniumspecflowframeworkfinal:latest ./SeleniumSpecflowFrameworkfinal
        - docker ps -a
        - echo Build started on `date`
        - pwd
        - echo path "$(pwd)"mypath
-       - docker create --env HOST_NAME=seleniumgrid --network automation_network --name SeleniumSpecflow_Frameworkfinal --volume "$(pwd)"/SeleniumSpecflowFrameworkfinal:/app/SeleniumSpecflowFrameworkfinal SeleniumSpecflowFrameworkfinal:latest
+       - docker create --env HOST_NAME=seleniumgrid --network automation_network --name SeleniumSpecflow_Frameworkfinal --volume "$(pwd)"/SeleniumSpecflowFrameworkfinal:/app/SeleniumSpecflowFrameworkfinal seleniumspecflowframeworkfinal:latest
        - docker ps -a
        - echo Build completed on `date`
        - ls -lrt
