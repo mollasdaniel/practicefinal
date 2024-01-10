@@ -11,10 +11,7 @@ phases:
      commands:
        - echo set selenium grid with chrome browser...
        -  echo Logging in to AWS ECR...
-       - aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 132445211002.dkr.ecr.eu-west-2.amazonaws.com
-       - docker pull 132445211002.dkr.ecr.eu-west-2.amazonaws.com/selenium-chrome-grid:latest
-       - docker network create automation_network || true
-       - docker run -d -p 4444:4444 --shm-size="2g" --network automation_network --name seleniumgrid --network-alias seleniumgrid 132445211002.dkr.ecr.eu-west-2.amazonaws.com/selenium-chrome-grid:latest    
+       - aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 132445211002.dkr.ecr.eu-west-2.amazonaws.com     
     build:
      commands:
        - echo Build started on `date`
@@ -22,16 +19,6 @@ phases:
        - docker build --rm=false -t 132445211002.dkr.ecr.eu-west-2.amazonaws.com/finalrepository:latest ./SeleniumSpecflowFrameworkfinal
        - docker ps -a
        - echo Build started on `date`
-       - pwd
-       - echo path "$(pwd)"mypath
-       - docker create --env HOST_NAME=seleniumgrid --network automation_network --name SeleniumSpecflow_Frameworkfinal --volume "$(pwd)"/SeleniumSpecflowFrameworkfinal:/app/SeleniumSpecflowFrameworkfinal 132445211002.dkr.ecr.eu-west-2.amazonaws.com/finalrepository:latest
-       - docker ps -a
-       - echo Build completed on `date`
-       - ls -lrt
-       - ls -lrt ./SeleniumSpecflowFrameworkfinal/
-       - docker start -a SeleniumSpecflow_Frameworkfinal
-       - docker ps -a
-       - echo Test Run Completed
        - echo Logging in to AWS ECR...
        - echo Pushing the Docker image to AWS ECR...
        - docker push 132445211002.dkr.ecr.eu-west-2.amazonaws.com/finalrepository:latest 
