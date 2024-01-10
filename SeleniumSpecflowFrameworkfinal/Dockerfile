@@ -23,7 +23,8 @@ WORKDIR /app
 # Copy the built artifacts from the build image
 COPY --from=build /app/out ./
 
+ WORKDIR /app/out/
 # Run the tests when the container launches
-CMD ["dotnet", "test"]
-# CMD ["dotnet","SeleniumSpecflowFrameworkfinal.csproj"]
+# CMD ["dotnet", "test"]
+ CMD ["dotnet","SeleniumSpecflowFrameworkfinal.csproj"]
 #ENTRYPOINT ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
