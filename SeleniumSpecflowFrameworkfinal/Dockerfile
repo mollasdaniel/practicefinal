@@ -26,5 +26,4 @@ COPY --from=build /app/out ./
  WORKDIR /app
 # Run the tests when the container launches
 # CMD ["dotnet", "test"]
- run dotnet test
-#ENTRYPOINT ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
+ENTRYPOINT ["dotnet", "SeleniumSpecflowFrameworkfinal..csproj"]
