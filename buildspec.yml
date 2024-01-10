@@ -12,7 +12,7 @@ phases:
        - echo set selenium grid with chrome browser...
        -  echo Logging in to AWS ECR...
        - aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 132445211002.dkr.ecr.eu-west-2.amazonaws.com
-       - docker pull 132445211002.dkr.ecr.eu-west-2.amazonaws.com/selenium-chrome-grid:latest .
+       - docker pull 132445211002.dkr.ecr.eu-west-2.amazonaws.com/selenium-chrome-grid:latest
        - docker network create automation_network || true
        - docker run -d -p 4444:4444 --shm-size="2g" --network automation_network --name seleniumgrid --network-alias seleniumgrid 132445211002.dkr.ecr.eu-west-2.amazonaws.com/selenium-chrome-grid:latest    
     build:
