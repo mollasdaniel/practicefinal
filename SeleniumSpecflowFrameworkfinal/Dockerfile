@@ -25,5 +25,5 @@ COPY --from=build /app/out ./
 
 RUN ls -l
 # Run the tests when the container launches
-RUN dotnet test SeleniumSpecflowFrameworkfinal.dll --settings SeleniumSpecflowFrameworkfinal/Config/AutomatedTestQA.runsettings
+RUN dotnet test SeleniumSpecflowFrameworkfinal.dll
 #CMD ["dotnet", "SeleniumSpecflowFrameworkfinal.csproj"]
