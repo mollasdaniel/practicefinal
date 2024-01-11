@@ -23,6 +23,10 @@ WORKDIR /app
 # Copy the built artifacts from the build image
 COPY --from=build /app/out ./
 
+# Install Chrome and Chromedriver
+RUN apt-get update && \
+    apt-get install -y chromium
+
 RUN ls -l
 # Run the tests when the container launches
 RUN dotnet test SeleniumSpecflowFrameworkfinal.dll
