@@ -21,11 +21,10 @@ phases:
        - echo Build started on `date`
        - echo Building the Docker image...
        - docker build -t 132445211002.dkr.ecr.eu-west-2.amazonaws.com/finalrepository:latest ./SeleniumSpecflowFrameworkfinal
-       - docker create --env HOST_NAME=seleniumgrid --network automation_network --name DanielTest --volume "$(pwd)"/SeleniumSpecflowFrameworkfinal:/app/SeleniumSpecflowFrameworkfinal 132445211002.dkr.ecr.eu-west-2.amazonaws.com/finalrepository:latest
+       - docker run --env HOST_NAME=seleniumgrid --network automation_network --name DanielTest --volume "$(pwd)"/SeleniumSpecflowFrameworkfinal:/app/SeleniumSpecflowFrameworkfinal 132445211002.dkr.ecr.eu-west-2.amazonaws.com/finalrepository:latest
        - docker ps -a
        - ls -lrt
        - ls -lrt SeleniumSpecflowFrameworkfinal
-       - docker start -a DanielTest
        - docker ps -a
        - echo Logging in to AWS ECR...
        - echo Pushing the Docker image to AWS ECR...
