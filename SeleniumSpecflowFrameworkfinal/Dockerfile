@@ -26,4 +26,4 @@ COPY --from=build /app/out ./
  WORKDIR /app
 # Run the tests when the container launches
 # CMD ["dotnet", "test"]
- CMD ["dotnet", "SeleniumSpecflowFrameworkfinal.csproj"]
+ ENTRYPOINT ["dotnet","test", "SeleniumSpecflowFrameworkfinal.csproj"]
