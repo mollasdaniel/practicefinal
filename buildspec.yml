@@ -21,6 +21,8 @@ phases:
        - docker ps -a
        - echo path "$(pwd)"mypath
        - echo list "$(ls)"
+       - echo list "$(cd SeleniumSpecflowFrameworkfinal)"
+       - echo list "$(ls)"
        - docker start -a DanielTest
        - echo Logging in to AWS ECR...
        - echo Pushing the Docker image to AWS ECR...
