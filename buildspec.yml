@@ -26,6 +26,7 @@ phases:
        - ls -lrt
        - ls -lrt SeleniumSpecflowFrameworkfinal
        - docker start -a DanielTest
+       - docker ps -a
        - echo Logging in to AWS ECR...
        - echo Pushing the Docker image to AWS ECR...
        - docker push 132445211002.dkr.ecr.eu-west-2.amazonaws.com/finalrepository:latest 
