@@ -25,5 +25,5 @@ COPY --from=build /app/out ./
 
 
 # Run the tests when the container launches
-# RUN dotnet test SeleniumSpecflowFrameworkfinal.sln
-CMD ["dotnet", "SeleniumSpecflowFrameworkfinal.csproj"]
+RUN dotnet test SeleniumSpecflowFrameworkfinal
+#CMD ["dotnet", "SeleniumSpecflowFrameworkfinal.csproj"]
