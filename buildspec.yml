@@ -20,6 +20,8 @@ phases:
        - docker create -e TZ=Europe/London --name DanielTest --volume "$(pwd)"/SeleniumSpecflowFrameworkfinal:/app/SeleniumSpecflowFrameworkfinal 132445211002.dkr.ecr.eu-west-2.amazonaws.com/finalrepository:latest
        - docker ps -a
        - docker start -a DanielTest
+       - ls -lrt
+       - ls -lrt SeleniumSpecflowFrameworkfinal
        - echo Logging in to AWS ECR...
        - echo Pushing the Docker image to AWS ECR...
        - docker ps -a
