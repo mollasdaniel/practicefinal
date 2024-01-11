@@ -19,6 +19,8 @@ phases:
        - docker build -t 132445211002.dkr.ecr.eu-west-2.amazonaws.com/finalrepository:latest ./SeleniumSpecflowFrameworkfinal
        - docker create -e TZ=Europe/London --name DanielTest 132445211002.dkr.ecr.eu-west-2.amazonaws.com/finalrepository:latest
        - docker ps -a
+       - echo path "$(pwd)"mypath
+       - echo list "$(ls)"
        - docker start -a DanielTest
        - echo Logging in to AWS ECR...
        - echo Pushing the Docker image to AWS ECR...
