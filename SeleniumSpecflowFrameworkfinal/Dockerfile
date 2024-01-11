@@ -23,13 +23,6 @@ WORKDIR /app
 # Copy the built artifacts from the build image
 COPY --from=build /app/out ./
 
-# Download and install Chrome
-ARG CHROME_VERSION="120.0.6099.201"
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_${CHROME_VERSION}-1_amd64.deb && \
-    dpkg -i google-chrome-stable_${CHROME_VERSION}-1_amd64.deb && \
-    apt-get install -f -y && \
-    rm google-chrome-stable_${CHROME_VERSION}-1_amd64.deb
-
 RUN ls -l
 # Run the tests when the container launches
 RUN dotnet test SeleniumSpecflowFrameworkfinal.dll
