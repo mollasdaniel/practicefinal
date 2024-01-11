@@ -29,7 +29,7 @@ phases:
        - echo Logging in to AWS ECR...
        - echo Pushing the Docker image to AWS ECR...
        - docker push 132445211002.dkr.ecr.eu-west-2.amazonaws.com/finalrepository:latest 
-       - docker exec wdio_test /bin/sh
+       - docker exec -it DanielTest dotnet test
    
    
   
