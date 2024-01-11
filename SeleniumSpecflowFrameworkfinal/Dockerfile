@@ -18,7 +18,7 @@ RUN dotnet build -c Release -o out
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS runtime
 
 # Set the working directory to /app
-WORKDIR /app
+WORKDIR /app/out
 
 # Copy the built artifacts from the build image
 COPY --from=build /app/out ./
@@ -26,4 +26,4 @@ COPY --from=build /app/out ./
  WORKDIR /app
 # Run the tests when the container launches
 # CMD ["dotnet", "test"]
- ENTRYPOINT ["dotnet","SeleniumSpecflowFrameworkfinal"]
+ ENTRYPOINT ["dotnet","SeleniumSpecflowFrameworkfinal.dll"]
