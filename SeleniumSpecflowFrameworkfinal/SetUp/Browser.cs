@@ -13,10 +13,10 @@ namespace SeleniumSpecflowFrameworkfinal.SetUp
     public class Browser
     {
         public static IWebDriver driver { get; set; }
-        public static void GetDrivers(string type)
+        public static void GetDrivers()
         {
-            var browser = type;
-            switch (browser)
+            var type = "ChromeDriver";
+            switch (type)
             {
                 case "ChromeDriver":
                     //new DriverManager().SetUpDriver(new ChromeConfig());
@@ -41,16 +41,16 @@ namespace SeleniumSpecflowFrameworkfinal.SetUp
            // return driver;
 
         }
-        public static void GetDriver(TestParameters parameters)
-        {
-            string browserType = parameters.Get("Testing.Default.Driver");
-             GetDrivers(browserType);
-        }
-        public static string GetUrl(TestParameters parameters)
-        {
-            string url = parameters.Get("EnvUrl");
-            return url;
-        }
+        //public static void GetDriver(TestParameters parameters)
+        //{
+        //    string browserType = parameters.Get("Testing.Default.Driver");
+        //     GetDrivers(browserType);
+        //}
+        //public static string GetUrl(TestParameters parameters)
+        //{
+        //    string url = parameters.Get("EnvUrl");
+        //    return url;
+        //}
 
     }
 }

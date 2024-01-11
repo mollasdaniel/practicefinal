@@ -28,7 +28,7 @@ namespace SeleniumSpecflowFrameworkfinal.Hooks
         {
           
 
-            Browser.GetDriver(TestContext.Parameters );
+            Browser.GetDrivers();
            
             _scenario = _feature.CreateNode<Scenario>(scenarioContext.ScenarioInfo.Title);
 
