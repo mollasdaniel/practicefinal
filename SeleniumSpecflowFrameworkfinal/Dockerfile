@@ -12,7 +12,7 @@ RUN dotnet restore
 COPY ./ ./
 
 # Build the application
-RUN dotnet build -c Release -o out
+RUN dotnet build SeleniumSpecflowFrameworkfinal.sln -c Release -o out
 
 # Use the official .NET runtime as the runtime image
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS runtime
@@ -25,5 +25,5 @@ COPY --from=build /app/out ./
 
 
 # Run the tests when the container launches
- CMD ["dotnet", "test"]
+ RUN dotnet test SeleniumSpecflowFrameworkfinal.sln
 # ENTRYPOINT ["dotnet","SeleniumSpecflowFrameworkfinal.dll"]
