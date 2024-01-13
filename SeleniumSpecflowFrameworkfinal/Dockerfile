@@ -14,10 +14,6 @@ COPY ./ ./
 # Build the application
 RUN dotnet build -c Release -o out
 
-
-RUN echo "Chrome: " && google-chrome --version
-
-
 # Use the official .NET runtime as the runtime image
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS runtime
 
