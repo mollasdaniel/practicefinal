@@ -24,9 +24,9 @@ phases:
        - docker images
        - docker run --env HOST_NAME=seleniumgrid --network automation_network --name DanielTest --volume "$(pwd)"/SeleniumSpecflowFrameworkfinal:/app/SeleniumSpecflowFrameworkfinal 132445211002.dkr.ecr.eu-west-2.amazonaws.com/finalrepository:latest
        - docker ps -a
-       - docker-compose down -v
+       - ls -lrt
+       - docker-compose up -f ./SeleniumSpecflowFrameworkfinal/docker-compose.yml
        - docker ps -a
-       - docker-compose up
        - ls -lrt
        - ls -lrt SeleniumSpecflowFrameworkfinal
        - docker ps -a
