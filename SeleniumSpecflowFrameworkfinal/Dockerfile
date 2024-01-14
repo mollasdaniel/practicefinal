@@ -24,6 +24,6 @@ WORKDIR /app
 COPY --from=build /app/out ./
 
 RUN ls -l
-# Run the tests when the container launches
-# RUN dotnet test SeleniumSpecflowFrameworkfinal.dll
-ENTRYPOINT ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
+# Run the tests when the container launches 
+RUN dotnet test SeleniumSpecflowFrameworkfinal.dll
+#ENTRYPOINT ["dotnet", "SeleniumSpecflowFrameworkfinal.dll"]
