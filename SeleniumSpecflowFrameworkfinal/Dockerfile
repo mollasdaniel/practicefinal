@@ -1,5 +1,5 @@
 # Use the official .NET SDK as the build image
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS base
 
 # Set the working directory to /app
 WORKDIR /app
