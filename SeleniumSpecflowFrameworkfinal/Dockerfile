@@ -1,5 +1,5 @@
 # Use the official .NET SDK as the build image
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 
 # Set the working directory to /app
 WORKDIR /app
@@ -15,7 +15,7 @@ COPY ./ ./
 RUN dotnet build -c Release -o out
 
 # Use the official .NET runtime as the runtime image
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS runtime
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 
 # Set the working directory to /app
 WORKDIR /app
