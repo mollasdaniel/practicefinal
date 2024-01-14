@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SeleniumSpecflowFrameworkfinal": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

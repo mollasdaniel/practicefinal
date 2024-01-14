@@ -7,6 +7,7 @@ using System.Text;
 using NUnit.Framework;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
+using OpenQA.Selenium.Remote;
 
 namespace SeleniumSpecflowFrameworkfinal.SetUp
 {
@@ -24,7 +25,7 @@ namespace SeleniumSpecflowFrameworkfinal.SetUp
 
                     // Add the headless option
                     options.AddArgument("headless");
-                    driver = new ChromeDriver(options);
+                    var driver = new RemoteWebDriver(new Uri("http://selenium-hub:4444/wd/hub"), options.ToCapabilities());
                     driver.Manage().Window.Maximize();  
                     driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
                     break;
@@ -32,7 +33,7 @@ namespace SeleniumSpecflowFrameworkfinal.SetUp
                     var config = new FirefoxConfig();
                     var version = config.GetLatestVersion().StartsWith(".") ? "0" + config.GetLatestVersion() : config.GetLatestVersion();
                     new DriverManager().SetUpDriver(new FirefoxConfig(), version);
-                    driver = new FirefoxDriver();
+                    //driver = new FirefoxDriver();
                     break;
 
                 default:
