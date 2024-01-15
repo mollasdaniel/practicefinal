@@ -25,7 +25,8 @@ namespace SeleniumSpecflowFrameworkfinal.SetUp
 
                     // Add the headless option
                     options.AddArgument("headless");
-                    var driver = new RemoteWebDriver(new Uri("http://selenium-hub:4444/wd/hub"), options.ToCapabilities());
+         
+;                    var driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), options.ToCapabilities());
                     driver.Manage().Window.Maximize();  
                     driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
                     break;
