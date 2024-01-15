@@ -20,7 +20,7 @@ phases:
      commands:
        - echo Build started on `date`
        - echo Building the Docker image...
-       - - docker ps -a
+       - docker ps -a
        - docker build -t 132445211002.dkr.ecr.eu-west-2.amazonaws.com/finalrepository:latest ./SeleniumSpecflowFrameworkfinal
        - docker images
        - docker run --env HOST_NAME=seleniumgrid --network automation_network --name DanielTest --volume "$(pwd)"/SeleniumSpecflowFrameworkfinal:/app/SeleniumSpecflowFrameworkfinal 132445211002.dkr.ecr.eu-west-2.amazonaws.com/finalrepository:latest
